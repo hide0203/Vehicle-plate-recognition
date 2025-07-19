@@ -1,0 +1,81 @@
+{% extends "base.html" %}
+
+{% block title %}Dashboard - Vehicle Plate Recognition{% endblock %}
+
+{% block content %}
+<div class="row">
+    <div class="col-12">
+        <h2><i class="fas fa-chart-bar"></i> Dashboard</h2>
+        <p class="text-muted">System statistics and recent activity</p>
+    </div>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="text-primary">{{ stats.total_plates or 0 }}</h3>
+                <p class="text-muted">Total Detections</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="text-success">{{ stats.unique_plates or 0 }}</h3>
+                <p class="text-muted">Unique Plates</p>
+            </div>
+        </div>
+    </div>
+    <div class="col-md-4">
+        <div class="card">
+            <div class="card-body text-center">
+                <h3 class="text-info">{{ stats.today_detections or 0 }}</h3>
+                <p class="text-muted">Today's Detections</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="row mt-4">
+    <div class="col-12">
+        <div class="card">
+            <div class="card-header">
+                <h5 class="mb-0">Recent Detections</h5>
+            </div>
+            <div class="card-body">
+                {% if recent_plates %}
+                    <div class="table-responsive">
+                        <table class="table table-striped">
+                            <thead>
+                                <tr>
+                                    <th>Plate Number</th>
+                                    <th>Timestamp</th>
+                                    <th>Confidence</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for plate in recent_plates %}
+                                <tr>
+                                    <td><strong>{{ plate.plate_number }}</strong></td>
+                                    <td>{{ plate.timestamp }}</td>
+                                    <td>
+                                        {% if plate.confidence_score %}
+                                            <span class="badge bg-secondary">{{ "%.1f"|format(plate.confidence_score) }}%</span>
+                                        {% else %}
+                                            <span class="text-muted">N/A</span>
+                                        {% endif %}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                {% else %}
+                    <p class="text-muted text-center">No plates detected yet</p>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
