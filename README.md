@@ -1,18 +1,20 @@
-Certainly! Here is your final, professional `README.md` tailored for your completed Vehicle License Plate Recognition System as demonstrated by your success screenshot:
-
 # Vehicle License Plate Recognition System
 
 **Last updated:** July 20, 2025
 
-**Author:** [Your Name]  
-**Project Type:** BCA Major Project  
+**Author:** [Kunal Singh]
 **Function:** Real-time detection and recognition of vehicle number plates using computer vision and OCR
+
+## WEB UI
+![WEB UI](<Screenshot 2025-07-20 133828.png>)
 
 ## 📸 Live Demo
 
 
-![Image 1](image.png)
-![Image 2](image-1.png)
+![Image 1](image.png)  
+
+![Image 2](image-1.png)  
+
 ![Image 3](image-2.png)
 
 🚗 Features
