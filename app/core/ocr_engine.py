@@ -15,31 +15,29 @@ class OCREngine:
         pytesseract.pytesseract.tesseract_cmd = Config.TESSERACT_CMD
         
         # OCR configuration for license plates
-        self.config = r'--oem 3 --psm 8 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
+        self.config = r'--oem 3 --psm 7 -c tessedit_char_whitelist=ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789'
     
     def preprocess_for_ocr(self, image):
-        """Preprocess image specifically for OCR"""
-        # Convert to grayscale if not already
+    # Convert to grayscale if not already
         if len(image.shape) == 3:
             gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
         else:
             gray = image
-        
-        # Resize image for better OCR
+        # Sharpen image (optional)
+        # kernel = np.array([[0, -1, 0], [-1, 5,-1], [0, -1, 0]])
+        # gray = cv2.filter2D(gray, -1, kernel)
+
+        # Resize for better OCR (important!)
         height, width = gray.shape
-        if height < 100:
-            scale_factor = 100 / height
-            new_width = int(width * scale_factor)
-            gray = cv2.resize(gray, (new_width, 100))
-        
-        # Apply threshold for better text recognition
+        if height < 100 or width < 200:
+            scale_factor = max(2, int(200 / min(height, width)))
+            gray = cv2.resize(gray, (width * scale_factor, height * scale_factor))
+
+        # Increase contrast and threshold
+        gray = cv2.equalizeHist(gray)
         _, thresh = cv2.threshold(gray, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)
-        
-        # Morphological operations to clean up the image
-        kernel = np.ones((2, 2), np.uint8)
-        processed = cv2.morphologyEx(thresh, cv2.MORPH_CLOSE, kernel)
-        
-        return processed
+        return thresh
+
     
     def extract_text(self, image):
         """Extract text from plate image"""

@@ -116,6 +116,12 @@ class VideoProcessor:
             
             for plate_coords in plates:
                 x, y, w, h = plate_coords
+
+                plate_roi = self.detector.extract_plate_roi(frame, plate_coords)
+                print(f"[DEBUG] Extracted ROI shape: {plate_roi.shape}")
+
+                if plate_roi.size == 0:
+                    print("[DEBUG] ROI size zero, skipping this region.")
                 
                 # Extract plate ROI
                 plate_roi = self.detector.extract_plate_roi(frame, plate_coords)
@@ -125,6 +131,7 @@ class VideoProcessor:
                 
                 # Perform OCR
                 plate_text = self.ocr_engine.extract_text(plate_roi)
+                print(f"[DEBUG] OCR text: '{plate_text}'")
                 
                 if plate_text:
                     # Get confidence score
