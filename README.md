@@ -10,7 +10,7 @@ Certainly! Here is your final, professional `README.md` tailored for your comple
 
 ## 📸 Live Demo
 
-![Recent Detections Screenshot]
+
 ![Image 1](image.png)
 ![Image 2](image-1.png)
 ![Image 3](image-2.png)
