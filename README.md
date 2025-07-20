@@ -8,7 +8,7 @@
 ## WEB UI
 ![WEB UI](<Screenshot 2025-07-20 133828.png>)
 
-## 📸 Live Demo
+## 📸 Captured Plates
 
 
 ![Image 1](image.png)  
