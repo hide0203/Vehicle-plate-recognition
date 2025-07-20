@@ -10,8 +10,12 @@ Certainly! Here is your final, professional `README.md` tailored for your comple
 
 ## 📸 Live Demo
 
-![Recent Detections Screenshot](https://pplx-res.cloudinary.com/image/private/user_uploads/81445994/76afcfd6-6d72-4952-99cb 🚗 Features
+![Recent Detections Screenshot]
+![Image 1](image.png)
+![Image 2](image-1.png)
+![Image 3](image-2.png)
 
+🚗 Features
 - **Live Camera Feed:** Real-time plate detection using your webcam or connected cameras
 - **Automatic License Plate Recognition:** Optical Character Recognition (OCR) for extracting plate numbers
 - **Recent Detections Panel:** Shows most recent successful readings with confidence scores
@@ -39,7 +43,7 @@ Certainly! Here is your final, professional `README.md` tailored for your comple
 ### 1. Clone or Download the Repository
 
 ```bash
-git clone https://github.com/yourusername/vehicle-plate-recognition.git
+git clone https://github.com/hide0203/Vehicle-plate-recognition.git
 cd vehicle-plate-recognition
 ```
 
@@ -138,4 +142,4 @@ For commercial or production use, adapt preprocessing and detection to your appl
 
 **Built with ❤️ using Python, OpenCV, Flask, and Tesseract-OCR.**
 
-*For questions, improvements, or feedback, [contact the project maintainer](mailto:youremail@domain.com) or [open an issue](https://github.com/yourusername/vehicle-plate-recognition/issues).*
+*For questions, improvements, or feedback, [contact the project maintainer](kunal_singh@outlook.in) or [open an issue](https://github.com/hide0203/Vehicle-plate-recognition/issues).*
