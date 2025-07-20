@@ -13,7 +13,7 @@
 
 ![Image 1](image.png)  
 
-![Image 2](image-1.png)  
+![Image 2](image-3.png)  
 
 ![Image 3](image-2.png)
 
